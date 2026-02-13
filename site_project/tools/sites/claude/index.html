@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janet "Dara" Jeffus - CTO & Software Engineer</title>
+    <meta name="description" content="Janet 'Dara' Jeffus - Senior Software Engineer & CTO with 20+ years experience in systems programming, leadership, and building elegant technical solutions.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Dogrun Color Palette */
+            --bg-primary: #222433;
+            --bg-secondary: #2a2c3f;
+            --bg-tertiary: #32364c;
+            --text-primary: #9ea3c0;
+            --text-secondary: #8085a6;
+            --text-dim: #545c8c;
+            --accent-cyan: #73c1a9;
+            --accent-magenta: #b871b8;
+            --accent-blue: #929be5;
+            --accent-green: #7cbe8c;
+            --accent-yellow: #a8a384;
+            --accent-pink: #ac8b83;
+            --cursor-color: #9ea3c0;
+            --selection-bg: #363e7f;
+            --error-color: #ff9494;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        ::selection {
+            background: var(--selection-bg);
+            color: var(--text-primary);
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.05) 50%
+            );
+            background-size: 100% 4px;
+            animation: scanlines 8s linear infinite;
+        }
+        
+        @keyframes scanlines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+        
+        .terminal-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .terminal-header {
+            background: var(--bg-secondary);
+            border: 2px solid var(--bg-tertiary);
+            border-radius: 8px 8px 0 0;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0;
+        }
+        
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-dim);
+        }
+        
+        .terminal-button.close { background: var(--error-color); }
+        .terminal-button.minimize { background: var(--accent-yellow); }
+        .terminal-button.maximize { background: var(--accent-green); }
+        
+        .terminal-title {
+            margin-left: auto;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        
+        .terminal-body {
+            background: var(--bg-primary);
+            border: 2px solid var(--bg-tertiary);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 24px;
+            min-height: 80vh;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        
+        .prompt {
+            color: var(--accent-cyan);
+            margin-right: 8px;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: var(--cursor-color);
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .ascii-art {
+            color: var(--accent-magenta);
+            font-size: 11px;
+            line-height: 1.2;
+            margin: 20px 0;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .ascii-art {
+                font-size: 8px;
+            }
+        }
+        
+        .section {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .menu-item {
+            color: var(--accent-blue);
+            cursor: pointer;
+            padding: 8px 0;
+            transition: all 0.2s;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        
+        .menu-item:hover {
+            color: var(--accent-cyan);
+            transform: translateX(4px);
+        }
+        
+        .menu-number {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            min-width: 20px;
+        }
+        
+        .menu-text {
+            flex: 1;
+        }
+        
+        h2 {
+            color: var(--accent-magenta);
+            margin: 24px 0 16px 0;
+            font-size: 1.4em;
+        }
+        
+        h3 {
+            color: var(--accent-cyan);
+            margin: 20px 0 12px 0;
+            font-size: 1.1em;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .skill-category {
+            margin: 20px 0;
+            padding: 16px;
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent-cyan);
+            border-radius: 4px;
+        }
+        
+        .skill-category h3 {
+            margin-top: 0;
+            color: var(--accent-yellow);
+        }
+        
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .skill-item {
+            color: var(--text-secondary);
+            padding: 4px 0;
+        }
+        
+        .skill-item::before {
+            content: "▸ ";
+            color: var(--accent-green);
+        }
+        
+        .experience-item {
+            margin: 24px 0;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            border: 1px solid var(--bg-tertiary);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .experience-title {
+            color: var(--accent-cyan);
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        .experience-duration {
+            color: var(--accent-yellow);
+            font-size: 0.9em;
+        }
+        
+        .experience-company {
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+        }
+        
+        .back-button {
+            color: var(--accent-pink);
+            cursor: pointer;
+            margin: 24px 0;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        
+        .back-button:hover {
+            color: var(--accent-magenta);
+            transform: translateX(-4px);
+        }
+        
+        .contact-link {
+            display: block;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            padding: 8px 0;
+            transition: all 0.2s;
+        }
+        
+        .contact-link:hover {
+            color: var(--accent-magenta);
+            transform: translateX(4px);
+        }
+        
+        .contact-link::before {
+            content: "→ ";
+            color: var(--accent-green);
+        }
+        
+        .typing-text {
+            display: inline;
+        }
+        
+        .site-link {
+            display: block;
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 12px 16px;
+            margin: 8px 0;
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent-cyan);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .site-link:hover {
+            background: var(--bg-tertiary);
+            transform: translateX(4px);
+            border-left-color: var(--accent-magenta);
+        }
+        
+        .site-title {
+            color: var(--accent-cyan);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .site-url {
+            color: var(--text-dim);
+            font-size: 0.85em;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .site-description {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+        
+        .category-header {
+            color: var(--accent-yellow);
+            font-size: 1.2em;
+            font-weight: 700;
+            margin: 32px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent-cyan);
+        }
+        
+        .intro-text {
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+        
+        .highlight {
+            color: var(--accent-cyan);
+        }
+        
+        @media (max-width: 768px) {
+            .terminal-container {
+                padding: 10px;
+            }
+            
+            .terminal-body {
+                padding: 16px;
+            }
+            
+            .skill-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .loading-text {
+            color: var(--accent-cyan);
+            font-size: 1.2em;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+    
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+            <span class="terminal-title">dara@portfolio:~</span>
+        </div>
+        
+        <div class="terminal-body">
+            <!-- Home/Landing Section -->
+            <div id="home" class="section active">
+                <div class="ascii-art">
+    ██████╗  █████╗ ██████╗  █████╗     ██╗███████╗███████╗███████╗██╗   ██╗███████╗
+    ██╔══██╗██╔══██╗██╔══██╗██╔══██╗    ██║██╔════╝██╔════╝██╔════╝██║   ██║██╔════╝
+    ██║  ██║███████║██████╔╝███████║    ██║█████╗  █████╗  █████╗  ██║   ██║███████╗
+    ██║  ██║██╔══██║██╔══██╗██╔══██║    ██║██╔══╝  ██╔══╝  ██╔══╝  ██║   ██║╚════██║
+    ██████╔╝██║  ██║██║  ██║██║  ██║    ██║███████╗██║     ██║     ╚██████╔╝███████║
+    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝    ╚═╝╚══════╝╚═╝     ╚═╝      ╚═════╝ ╚══════╝
+                </div>
+                
+                <div class="intro-text">
+                    <p><span class="prompt">$</span> <span class="typing-text">whoami</span></p>
+                    <p><span class="highlight">Janet "Dara" Jeffus</span> - CTO & Software Engineer | 20+ Years Experience</p>
+                    <p>Teaching the world to leverage AI in daily life</p>
+                </div>
+                
+                <p style="margin-top: 24px;"><span class="prompt">$</span> Select an option (1-6) or click to navigate:</p>
+                
+                <div id="main-menu">
+                    <div class="menu-item" onclick="showSection('about')">
+                        <span class="menu-number">[1]</span>
+                        <span class="menu-text">About Me</span>
+                    </div>
+                    <div class="menu-item" onclick="showSection('skills')">
+                        <span class="menu-number">[2]</span>
+                        <span class="menu-text">Skills & Technologies</span>
+                    </div>
+                    <div class="menu-item" onclick="showSection('experience')">
+                        <span class="menu-number">[3]</span>
+                        <span class="menu-text">Experience & Projects</span>
+                    </div>
+                    <div class="menu-item" onclick="showSection('sites')">
+                        <span class="menu-number">[4]</span>
+                        <span class="menu-text">Useful Sites Collection</span>
+                    </div>
+                    <div class="menu-item" onclick="showSection('contact')">
+                        <span class="menu-number">[5]</span>
+                        <span class="menu-text">Contact & Social Links</span>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 32px; color: var(--text-dim); font-size: 0.9em;">
+                    <span class="prompt">$</span> Try typing 'help' for Easter eggs...
+                </p>
+            </div>
+            
+            <!-- About Section -->
+            <div id="about" class="section">
+                <h2>// ABOUT ME</h2>
+                
+                <p>I'm Janet "Dara" Jeffus, a software engineer and technology leader with over 20 years of experience building teams, products, and companies.</p>
+                
+                <p>My career spans from low-level systems programming to executive leadership, always maintaining a hands-on technical approach. I believe in the Unix philosophy, open source collaboration, and building elegant solutions to complex problems.</p>
+                
+                <p>Currently, I'm leading the AI revolution by teaching ordinary people how to leverage AI in their daily lives. My passion lies in mentoring engineers, building inclusive technical cultures, and pushing the boundaries of what's possible with code.</p>
+                
+                <h3>Experience Highlights</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin: 8px 0; color: var(--text-secondary);">▸ 20+ years in software engineering and leadership</li>
+                    <li style="margin: 8px 0; color: var(--text-secondary);">▸ Multiple CTO positions at startups and scale-ups</li>
+                    <li style="margin: 8px 0; color: var(--text-secondary);">▸ Built and led engineering teams of up to 15 developers</li>
+                    <li style="margin: 8px 0; color: var(--text-secondary);">▸ Expertise in legacy system modernization and technical rescue</li>
+                    <li style="margin: 8px 0; color: var(--text-secondary);">▸ Early Bitcoin economy pioneer (founded Tradebitcoin.com)</li>
+                </ul>
+                
+                <h3>Personal Interests</h3>
+                <p>When I'm not coding, I'm passionate about hacker culture, retro computing, cyberpunk aesthetics, and the democratization of technology through AI. I celebrate the elegance of command-line interfaces and the creativity of early computing pioneers.</p>
+                
+                <div class="back-button" onclick="showSection('home')">← Back to Main Menu</div>
+            </div>
+            
+            <!-- Skills Section -->
+            <div id="skills" class="section">
+                <h2>// SKILLS & TECHNOLOGIES</h2>
+                
+                <div class="skill-category">
+                    <h3>PROGRAMMING LANGUAGES</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Ruby</div>
+                        <div class="skill-item">JavaScript/TypeScript</div>
+                        <div class="skill-item">Dart/Flutter</div>
+                        <div class="skill-item">Perl</div>
+                        <div class="skill-item">C</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">Bash/Shell</div>
+                        <div class="skill-item">SQL</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>FRAMEWORKS & TOOLS</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Ruby on Rails</div>
+                        <div class="skill-item">Node.js</div>
+                        <div class="skill-item">React</div>
+                        <div class="skill-item">Flutter</div>
+                        <div class="skill-item">Electron</div>
+                        <div class="skill-item">Auth0</div>
+                        <div class="skill-item">AWS</div>
+                        <div class="skill-item">Heroku</div>
+                        <div class="skill-item">Git/GitHub</div>
+                        <div class="skill-item">Linux/Unix</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>LEADERSHIP & MANAGEMENT</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Technical Team Building</div>
+                        <div class="skill-item">Strategic Planning</div>
+                        <div class="skill-item">Product Development</div>
+                        <div class="skill-item">Startup Operations</div>
+                        <div class="skill-item">Mentoring & Training</div>
+                        <div class="skill-item">Pair Programming</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>SPECIALIZATIONS</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Systems Programming</div>
+                        <div class="skill-item">DevOps & Infrastructure</div>
+                        <div class="skill-item">Legacy System Modernization</div>
+                        <div class="skill-item">Mobile Development</div>
+                        <div class="skill-item">AI Integration</div>
+                        <div class="skill-item">GIS/Geospatial</div>
+                        <div class="skill-item">Authentication Systems</div>
+                        <div class="skill-item">Video Processing</div>
+                    </div>
+                </div>
+                
+                <div class="back-button" onclick="showSection('home')">← Back to Main Menu</div>
+            </div>
+            
+            <!-- Experience Section -->
+            <div id="experience" class="section">
+                <h2>// EXPERIENCE & PROJECTS</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Lead Software Engineer</div>
+                        <div class="experience-duration">Oct 2023 - Present (2 yrs 5 mos)</div>
+                    </div>
+                    <div class="experience-company">Cengage Group · Contract · Remote</div>
+                    <p>Leading educational content modernization project. Created custom Node/Electron software for categorization and annotation. Spearheaded video conversion system using Ruby and AI. Managed 7,256 figures extraction and categorization. Hired and managed contract teams.</p>
+                    <p style="font-size: 0.85em; color: var(--text-dim); margin-top: 8px;">
+                        Skills: Software Design · Flutter · Ruby on Rails · Video Production · Node.js
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Senior Software Engineer</div>
+                        <div class="experience-duration">Jul 2022 - Jul 2023 (1 yr)</div>
+                    </div>
+                    <div class="experience-company">Realquantum · Full-time · Overland Park, KS</div>
+                    <p>Drove product development, authentication and GIS integration for commercial real estate appraisal platform. Implemented pair programming and robust testing workflows. Specialized in Auth0 and Azure SSO implementation.</p>
+                    <p style="font-size: 0.85em; color: var(--text-dim); margin-top: 8px;">
+                        Skills: Node.js · DevOps · Ruby on Rails · TypeScript · Auth0 · AWS
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Senior Software Engineer</div>
+                        <div class="experience-duration">Aug 2021 - Jul 2022 (1 yr)</div>
+                    </div>
+                    <div class="experience-company">Bright Funds · Full-time · Remote</div>
+                    <p>Added 23 languages to platform with custom tooling. Developed solution that rewrote 30% of codebase, automatically adding i18n tokens across all templates and JavaScript.</p>
+                    <p style="font-size: 0.85em; color: var(--text-dim); margin-top: 8px;">
+                        Skills: Node.js · JavaScript · TypeScript · Ruby on Rails · Heroku
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Chief Technology Officer</div>
+                        <div class="experience-duration">Nov 2016 - Oct 2017 (1 yr)</div>
+                    </div>
+                    <div class="experience-company">Helpkin · Greater Los Angeles Area</div>
+                    <p>Led tech team for childcare sharing app launch. Built platform enabling parents to share childcare with trusted connections through date night swaps and last-minute help coordination.</p>
+                    <p style="font-size: 0.85em; color: var(--text-dim); margin-top: 8px;">
+                        Skills: Node.js · Mobile Development · JavaScript · TypeScript
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Chief Technology Officer</div>
+                        <div class="experience-duration">Mar 2012 - Nov 2014 (2 yrs 9 mos)</div>
+                    </div>
+                    <div class="experience-company">Net Versa, LLC · Irvine, CA</div>
+                    <p>CTO and System Architect of business listing automation suite. Led team of 15 developers, creating 180,000+ lines of code across 5 languages, 3 operating systems, and 18 repositories. Grew customer base by 200%.</p>
+                    <p style="font-size: 0.85em; color: var(--text-dim); margin-top: 8px;">
+                        Skills: Team Management · Mobile Development · JavaScript
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Founder</div>
+                        <div class="experience-duration">Oct 2009 - Jan 2013 (3 yrs 4 mos)</div>
+                    </div>
+                    <div class="experience-company">Tradebitcoin.com</div>
+                    <p>Founded first-to-market local Bitcoin trading platform. Market leader providing local-gap trading solution within early Bitcoin economy.</p>
+                    <p style="font-size: 0.85em; color: var(--text-dim); margin-top: 8px;">
+                        Skills: JavaScript · Product Development · Cryptocurrency
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Chief Technology Officer</div>
+                        <div class="experience-duration">Apr 2005 - Nov 2008 (3 yrs 8 mos)</div>
+                    </div>
+                    <div class="experience-company">Learning Online, LLC · Fort Myers, FL</div>
+                    <p>Co-founder, architect and senior developer for online learning platform "Scholar Square" - first-to-market courseware and curriculum marketplace.</p>
+                    <p style="font-size: 0.85em; color: var(--text-dim); margin-top: 8px;">
+                        Skills: Team Management · JavaScript · E-Learning
+                    </p>
+                </div>
+                
+                <h3 style="margin-top: 32px;">GitHub Projects</h3>
+                <p>Visit my GitHub profile for open source contributions and projects:</p>
+                <a href="https://github.com/aprajnaparamita" target="_blank" rel="noopener" class="contact-link">github.com/aprajnaparamita</a>
+                
+                <div class="back-button" onclick="showSection('home')">← Back to Main Menu</div>
+            </div>
+            
+            <!-- Useful Sites Section -->
+            <div id="sites" class="section">
+                <h2>// USEFUL SITES COLLECTION</h2>
+                <p>A curated collection of 168 websites across various categories - AI tools, learning resources, productivity apps, and more.</p>
+                
+                <div id="sites-content" class="loading">
+                    <div class="loading-text">Loading sites...</div>
+                </div>
+                
+                <div class="back-button" onclick="showSection('home')">← Back to Main Menu</div>
+            </div>
+            
+            <!-- Contact Section -->
+            <div id="contact" class="section">
+                <h2>// CONTACT & SOCIAL LINKS</h2>
+                
+                <p>Let's connect! Reach out through any of these channels:</p>
+                
+                <h3>Email</h3>
+                <a href="mailto:darajeffus@gmail.com" class="contact-link">darajeffus@gmail.com</a>
+                
+                <h3>Social Media & Professional</h3>
+                <a href="https://github.com/aprajnaparamita" target="_blank" rel="noopener" class="contact-link">GitHub: @aprajnaparamita</a>
+                <a href="https://www.linkedin.com/in/janet-jeffus-b0709720/" target="_blank" rel="noopener" class="contact-link">LinkedIn: Janet Jeffus</a>
+                <a href="https://www.tiktok.com/@darabuilds" target="_blank" rel="noopener" class="contact-link">TikTok: @darabuilds</a>
+                <a href="https://www.instagram.com/darabuilds" target="_blank" rel="noopener" class="contact-link">Instagram: @darabuilds</a>
+                
+                <h3>Messaging</h3>
+                <a href="https://line.me/ti/p/~jjeffus" target="_blank" rel="noopener" class="contact-link">LINE: @jjeffus</a>
+                <a href="https://wa.me/660818387716" target="_blank" rel="noopener" class="contact-link">WhatsApp: +66 081 838 7716</a>
+                
+                <div class="ascii-art" style="margin-top: 32px; font-size: 9px;">
+     ╔═══════════════════════════════════════════════════════╗
+     ║  "Code is poetry. Systems are symphonies.            ║
+     ║   Let's build something beautiful together."         ║
+     ║                                        - Dara        ║
+     ╚═══════════════════════════════════════════════════════╝
+                </div>
+                
+                <div class="back-button" onclick="showSection('home')">← Back to Main Menu</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Load sites content if navigating to sites section
+            if (sectionId === 'sites' && !window.sitesLoaded) {
+                loadSites();
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const currentSection = document.querySelector('.section.active').id;
+            
+            if (currentSection === 'home') {
+                switch(e.key) {
+                    case '1':
+                        showSection('about');
+                        break;
+                    case '2':
+                        showSection('skills');
+                        break;
+                    case '3':
+                        showSection('experience');
+                        break;
+                    case '4':
+                        showSection('sites');
+                        break;
+                    case '5':
+                        showSection('contact');
+                        break;
+                }
+            } else if (e.key === 'Escape' || e.key === '0') {
+                showSection('home');
+            }
+        });
+        
+        // Easter egg: help command
+        let commandBuffer = '';
+        document.addEventListener('keypress', (e) => {
+            commandBuffer += e.key;
+            
+            if (commandBuffer.includes('help')) {
+                alert('🎮 Easter Egg Found!\n\nKeyboard Shortcuts:\n1-5: Navigate to sections\n0 or ESC: Back to main menu\n\nTry typing: whoami, ls, cat');
+                commandBuffer = '';
+            } else if (commandBuffer.includes('whoami')) {
+                alert('dara@portfolio\nJanet "Dara" Jeffus\nUID=20years GID=hacker(excellence)');
+                commandBuffer = '';
+            } else if (commandBuffer.includes('ls')) {
+                alert('📁 ls -la\ntotal 168_websites\ndrwxr-xr-x  about.md\ndrwxr-xr-x  skills.json\ndrwxr-xr-x  experience.log\ndrwxr-xr-x  contact.txt');
+                commandBuffer = '';
+            } else if (commandBuffer.includes('cat')) {
+                alert('🐱 cat ~/.passion\n"Building elegant solutions to complex problems.\nMentoring the next generation.\nCelebrating hacker culture."');
+                commandBuffer = '';
+            }
+            
+            // Clear buffer if too long
+            if (commandBuffer.length > 20) {
+                commandBuffer = '';
+            }
+        });
+        
+        // Load sites dynamically
+        function loadSites() {
+            const sitesContent = document.getElementById('sites-content');
+            
+            // Featured AI Tools
+            const sites = [
+                {
+                    category: "AI Tools",
+                    sites: [
+                        {
+                            name: "MusicGPT",
+                            url: "musicgpt.com",
+                            description: "AI-powered music generation platform creating custom songs, instrumentals, and sound effects from text prompts."
+                        },
+                        {
+                            name: "Runable",
+                            url: "runable.ai",
+                            description: "Design-driven AI agent creating complete functional websites, documents, reports, and podcasts from text prompts."
+                        },
+                        {
+                            name: "Clever AI Humanizer",
+                            url: "aihumanizer.net",
+                            description: "Free AI text humanizer that rewrites AI content to sound natural and bypass detection tools."
+                        },
+                        {
+                            name: "Emergent",
+                            url: "app.emergent.sh",
+                            description: "Agentic AI build platform that generates, tests, and debugs code to create fully functional apps."
+                        },
+                        {
+                            name: "Recraft AI",
+                            url: "recraft.ai",
+                            description: "AI image generator creating custom images based on text prompts."
+                        }
+                    ]
+                },
+                {
+                    category: "Learning Resources",
+                    sites: [
+                        {
+                            name: "Khan Academy",
+                            url: "khanacademy.org",
+                            description: "Free online courses in math, science, programming, history, and more."
+                        },
+                        {
+                            name: "Coursera",
+                            url: "coursera.org",
+                            description: "Online courses from top universities and companies worldwide."
+                        },
+                        {
+                            name: "Anna's Archive",
+                            url: "annas-archive.org",
+                            description: "Free online library archive providing access to textbooks and educational materials."
+                        }
+                    ]
+                },
+                {
+                    category: "Developer Tools",
+                    sites: [
+                        {
+                            name: "Replit",
+                            url: "replit.com",
+                            description: "AI app builder and coding platform for collaborative development."
+                        },
+                        {
+                            name: "GitHub",
+                            url: "github.com",
+                            description: "Code hosting platform for version control and collaboration."
+                        },
+                        {
+                            name: "iFixit",
+                            url: "ifixit.com",
+                            description: "Free repair manual website with step-by-step guides for fixing virtually anything."
+                        }
+                    ]
+                },
+                {
+                    category: "Productivity",
+                    sites: [
+                        {
+                            name: "Hemingway App",
+                            url: "hemingwayapp.com",
+                            description: "Writing analysis tool that evaluates text quality and provides improvement suggestions."
+                        },
+                        {
+                            name: "Notion",
+                            url: "notion.so",
+                            description: "All-in-one workspace for notes, tasks, wikis, and databases."
+                        }
+                    ]
+                },
+                {
+                    category: "Design Tools",
+                    sites: [
+                        {
+                            name: "Figma",
+                            url: "figma.com",
+                            description: "Collaborative interface design tool."
+                        },
+                        {
+                            name: "Beyond Loom",
+                            url: "beyondloom.com",
+                            description: "Creative tool for creating animated GIFs by drawing wiggly animations."
+                        }
+                    ]
+                }
+            ];
+            
+            let html = '<p style="font-size: 0.9em; color: var(--text-dim); margin-bottom: 24px;">Featured selection from 168 curated websites. Full index available in source files.</p>';
+            
+            sites.forEach(category => {
+                html += `<div class="category-header">${category.category}</div>`;
+                category.sites.forEach(site => {
+                    html += `
+                        <a href="https://${site.url}" target="_blank" rel="noopener" class="site-link">
+                            <span class="site-title">${site.name}</span>
+                            <span class="site-url">${site.url}</span>
+                            <span class="site-description">${site.description}</span>
+                        </a>
+                    `;
+                });
+            });
+            
+            sitesContent.innerHTML = html;
+            window.sitesLoaded = true;
+        }
+        
+        // Typing effect for intro
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const typingElements = document.querySelectorAll('.typing-text');
+                typingElements.forEach(el => {
+                    el.style.borderRight = '2px solid var(--cursor-color)';
+                    el.style.animation = 'blink 1s step-end infinite';
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>
