@@ -1,0 +1,40 @@
+.prompt-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  color: var(--statement-purple);
+  margin-right: 0.5rem;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+  outline: none;
+}
+
+.terminal-input:focus {
+  outline: none;
+}
+
+.cursor {
+  background-color: var(--foreground);
+  display: inline-block;
+  width: 0.5em;
+  height: 1.2em;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: var(--foreground);
+  }
+}

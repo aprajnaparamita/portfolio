@@ -1,0 +1,37 @@
+{
+  "documents": [],
+  "tables_parsed": [],
+  "tables_source_info": [],
+  "images": [],
+  "summary": {
+    "total_files": 2,
+    "by_category": {
+      "documents": 0,
+      "tables_parsed": 0,
+      "tables_source_info": 0,
+      "images": 0,
+      "document": 2
+    },
+    "processing_time": null
+  },
+  "document": [
+    {
+      "original_name": "simplified_prompt",
+      "file_name": "simplified_prompt.md",
+      "file_path": "/workspace/dara_terminal_portfolio/uploaded_files/documents/simplified_prompt.md",
+      "file_type": "md",
+      "category": "document",
+      "summary": "Processed simplified_prompt for coding",
+      "source_id": "2021595343654035456"
+    },
+    {
+      "original_name": "brand_prompt",
+      "file_name": "brand_prompt.md",
+      "file_path": "/workspace/dara_terminal_portfolio/uploaded_files/documents/brand_prompt.md",
+      "file_type": "md",
+      "category": "document",
+      "summary": "Processed brand_prompt for coding",
+      "source_id": "2021584115502227456"
+    }
+  ]
+}

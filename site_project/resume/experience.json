@@ -1,0 +1,192 @@
+{
+  "experience": [
+    {
+      "title": "Lead Software Engineer",
+      "company": "Cengage Group",
+      "employment_type": "Contract",
+      "start_date": "Oct 2023",
+      "end_date": "Present",
+      "duration": "2 yrs 5 mos",
+      "location": "Remote",
+      "description": "Lead the project for updating a line of educational books, videos and meta data collection for an extensive modernization project. Created 7,256 figures, categorized, identified and extracted from a book series. Hired contractors, conducting interviews and hiring talent. Lead the project creating custom software in Node/Electron for categorization and annotation from start to finish. Spearheaded the creation of a video conversion and categorization system in Ruby utilizing AI and contract workers to identify and provide annotations for over 700 videos.",
+      "skills": [
+        "Software Design",
+        "Software Development",
+        "Flutter",
+        "Ruby on Rails",
+        "Video Production"
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Realquantum",
+      "employment_type": "Full-time",
+      "start_date": "Jul 2022",
+      "end_date": "Jul 2023",
+      "duration": "1 yr 1 mo",
+      "location": "Overland Park, KS · Hybrid",
+      "description": "Drove product development, authentication and geospatial (GIS) integration for a commercial real estate appraisal platform. Cultivated high-performing teams by implementing pair programming, robust testing, and a product-focused workflow, strengthening both technical output and collaborative relationships.",
+      "skills": [
+        "Node.js",
+        "DevOps",
+        "Team Management",
+        "Ruby on Rails",
+        "Linux",
+        "JavaScript",
+        "Negotiation",
+        "TypeScript",
+        "Auth0",
+        "Amazon Web Services (AWS)"
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Bright Funds",
+      "employment_type": "Full-time",
+      "start_date": "Aug 2021",
+      "end_date": "Jul 2022",
+      "duration": "1 yr",
+      "location": "Oakland, California, United States · Remote",
+      "description": "Added 23 languages to the platform with tooling and translation back-end. Developed a custom solution that rewrote over 30% of the code base and instantly added i18n tokens in all templates and JavaScript.",
+      "skills": [
+        "Node.js",
+        "Team Management",
+        "JavaScript",
+        "Negotiation",
+        "TypeScript",
+        "Ruby on Rails",
+        "Heroku"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Kicksite",
+      "employment_type": null,
+      "start_date": "Nov 2017",
+      "end_date": "Mar 2018",
+      "duration": "5 mos",
+      "location": "Kansas City, Missouri Area",
+      "description": "Senior full-stack Ruby on Rails developer working on re-designing and revamping major portions of the software platform.",
+      "skills": [
+        "Team Management",
+        "Mobile Application Development",
+        "JavaScript",
+        "Ruby on Rails",
+        "Ruby",
+        "Heroku",
+        "OAuth"
+      ]
+    },
+    {
+      "title": "Chief Technology Officer",
+      "company": "Helpkin",
+      "employment_type": null,
+      "start_date": "Nov 2016",
+      "end_date": "Oct 2017",
+      "duration": "1 yr",
+      "location": "Greater Los Angeles Area",
+      "description": "Helpkin is the new app for parents to share childcare with people they can trust, like date night swaps and last-minute help, for free. Leading the tech team to a beautiful product launch.",
+      "skills": [
+        "Node.js",
+        "Team Management",
+        "Mobile Application Development",
+        "JavaScript",
+        "Negotiation",
+        "TypeScript"
+      ]
+    },
+    {
+      "title": "Chief Technology Officer",
+      "company": "FAPL",
+      "employment_type": null,
+      "start_date": "Jul 2016",
+      "end_date": "Nov 2016",
+      "duration": "5 mos",
+      "location": "Greater Los Angeles Area",
+      "description": "Bringing innovation to the fashion industry building a trail blazing social platform for fashion discovery. Share style inspiration with brands and fashion lovers around the world. Shop the looks you love with just one tap.",
+      "skills": [
+        "Node.js",
+        "Team Management",
+        "Mobile Application Development",
+        "JavaScript",
+        "TypeScript"
+      ]
+    },
+    {
+      "title": "Senior Ruby Developer",
+      "company": "Local Lighthouse",
+      "employment_type": null,
+      "start_date": "Sep 2014",
+      "end_date": "Mar 2015",
+      "duration": "7 mos",
+      "location": "Costa Mesa, CA",
+      "description": "Lead the integration and development of a big data scale business directory. As well as acquired large-scale marketing lead data from a diverse and cross platform array of sources that lead to a significant increase in leads acquired.",
+      "skills": [
+        "JavaScript",
+        "Negotiation"
+      ]
+    },
+    {
+      "title": "Chief Technology Officer",
+      "company": "Net Versa, LLC",
+      "employment_type": null,
+      "start_date": "Mar 2012",
+      "end_date": "Nov 2014",
+      "duration": "2 yrs 9 mos",
+      "location": "Irvine, CA",
+      "description": "Chief Technology Officer and System Architect of a complex suite of products that automated business listings on local search directories. Lead a team of up to 15 developers in building from the ground up a multi-platform product base. This led to over 180,000 lines of code being written in five languages for three operating systems in 18 repositories. The technology grew the customer base by over 200%.",
+      "skills": [
+        "Team Management",
+        "Mobile Application Development",
+        "JavaScript",
+        "Negotiation"
+      ]
+    },
+    {
+      "title": "Founder",
+      "company": "Tradebitcoin.com",
+      "employment_type": null,
+      "start_date": "Oct 2009",
+      "end_date": "Jan 2013",
+      "duration": "3 yrs 4 mos",
+      "location": null,
+      "description": "First to market and market leader of online local Bitcoin trading that sounded a clarion call for a local-gap trading solution within the Bitcoin economy.",
+      "skills": [
+        "JavaScript",
+        "Negotiation"
+      ]
+    },
+    {
+      "title": "Chief Technology Officer",
+      "company": "4MatchR",
+      "employment_type": null,
+      "start_date": "Oct 2010",
+      "end_date": "Jan 2011",
+      "duration": "4 mos",
+      "location": "Brooklyn, NY",
+      "description": "Team leader and system architect for a big data real estate listing aggregator. Combined all localized real estate listings in a user friendly interface.",
+      "skills": [
+        "Team Management",
+        "JavaScript",
+        "Negotiation"
+      ]
+    },
+    {
+      "title": "Chief Technology Officer",
+      "company": "Learning Online, LLC",
+      "employment_type": null,
+      "start_date": "Apr 2005",
+      "end_date": "Nov 2008",
+      "duration": "3 yrs 8 mos",
+      "location": "Fort Myers, FL",
+      "description": "Co-founder, architect and senior developer for an online learning platform that was a first to market courseware and curriculum marketplace named Scholar Square.",
+      "skills": [
+        "Team Management",
+        "JavaScript",
+        "Learning",
+        "Negotiation"
+      ]
+    }
+  ]
+}
+

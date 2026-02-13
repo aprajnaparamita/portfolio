@@ -1,0 +1,264 @@
+{
+  "basics": {
+    "name": "Janet Jeffus",
+    "label": "Senior Web & Mobile Developer | 15+ Years | Legacy Systems, APIs, Flutter, Rails, React",
+    "picture": "",
+    "email": "",
+    "website": "",
+    "summary": "I’m a senior web and mobile developer with 15+ years of experience building, fixing, and modernizing production systems.  I specialize in taking over complex or neglected codebases and making them stable, secure, and scalable.  Fluent in English (native), intermediate in Thai ฉันสามารถพูด ฟัง อ่าน เขียนภาษาไทยได้ค่ะ On track to achieve HSK3 in Mandarin Chinese this year",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "",
+      "countryCode": "",
+      "region": ""
+    }
+  },
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native"
+    },
+    {
+      "language": "Thai",
+      "fluency": "Intermediate"
+    },
+    {
+      "language": "Mandarin Chinese",
+      "fluency": "HSK3"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Lead Software Engineer",
+      "company": "Cengage Group",
+      "employment_type": "Contract",
+      "start_date": "Oct 2023",
+      "end_date": "Present",
+      "duration": "2 yrs 5 mos",
+      "location": "Remote",
+      "description": "Lead the project for updating a line of educational books, videos and meta data collection for an extensive modernization project. Created 7,256 figures, categorized, identified and extracted from a book series. Hired contractors, conducting interviews and hiring talent. Lead the project creating custom software in Node/Electron for categorization and annotation from start to finish. Spearheaded the creation of a video conversion and categorization system in Ruby utilizing AI and contract workers to identify and provide annotations for over 700 videos.",
+      "skills": [
+        "Software Design",
+        "Software Development",
+        "Flutter",
+        "Ruby on Rails",
+        "Video Production"
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Realquantum",
+      "employment_type": "Full-time",
+      "start_date": "Jul 2022",
+      "end_date": "Jul 2023",
+      "duration": "1 yr 1 mo",
+      "location": "Overland Park, KS · Hybrid",
+      "description": "Drove product development, authentication and geospatial (GIS) integration for a commercial real estate appraisal platform. Cultivated high-performing teams by implementing pair programming, robust testing, and a product-focused workflow, strengthening both technical output and collaborative relationships.",
+      "skills": [
+        "Node.js",
+        "DevOps",
+        "Team Management",
+        "Ruby on Rails",
+        "Linux",
+        "JavaScript",
+        "Negotiation",
+        "TypeScript",
+        "Auth0",
+        "Amazon Web Services (AWS)"
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Bright Funds",
+      "employment_type": "Full-time",
+      "start_date": "Aug 2021",
+      "end_date": "Jul 2022",
+      "duration": "1 yr",
+      "location": "Oakland, California, United States · Remote",
+      "description": "Added 23 languages to the platform with tooling and translation back-end. Developed a custom solution that rewrote over 30% of the code base and instantly added i18n tokens in all templates and JavaScript.",
+      "skills": [
+        "Node.js",
+        "Team Management",
+        "JavaScript",
+        "Negotiation",
+        "TypeScript",
+        "Ruby on Rails",
+        "Heroku"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Kicksite",
+      "employment_type": null,
+      "start_date": "Nov 2017",
+      "end_date": "Mar 2018",
+      "duration": "5 mos",
+      "location": "Kansas City, Missouri Area",
+      "description": "Senior full-stack Ruby on Rails developer working on re-designing and revamping major portions of the software platform.",
+      "skills": [
+        "Team Management",
+        "Mobile Application Development",
+        "JavaScript",
+        "Ruby on Rails",
+        "Ruby",
+        "Heroku",
+        "OAuth"
+      ]
+    },
+    {
+      "title": "Chief Technology Officer",
+      "company": "Helpkin",
+      "employment_type": null,
+      "start_date": "Nov 2016",
+      "end_date": "Oct 2017",
+      "duration": "1 yr",
+      "location": "Greater Los Angeles Area",
+      "description": "Helpkin is the new app for parents to share childcare with people they can trust, like date night swaps and last-minute help, for free. Leading the tech team to a beautiful product launch.",
+      "skills": [
+        "Node.js",
+        "Team Management",
+        "Mobile Application Development",
+        "JavaScript",
+        "Negotiation",
+        "TypeScript"
+      ]
+    },
+    {
+      "title": "Chief Technology Officer",
+      "company": "FAPL",
+      "employment_type": null,
+      "start_date": "Jul 2016",
+      "end_date": "Nov 2016",
+      "duration": "5 mos",
+      "location": "Greater Los Angeles Area",
+      "description": "Bringing innovation to the fashion industry building a trail blazing social platform for fashion discovery. Share style inspiration with brands and fashion lovers around the world. Shop the looks you love with just one tap.",
+      "skills": [
+        "Node.js",
+        "Team Management",
+        "Mobile Application Development",
+        "JavaScript",
+        "TypeScript"
+      ]
+    },
+    {
+      "title": "Senior Ruby Developer",
+      "company": "Local Lighthouse",
+      "employment_type": null,
+      "start_date": "Sep 2014",
+      "end_date": "Mar 2015",
+      "duration": "7 mos",
+      "location": "Costa Mesa, CA",
+      "description": "Lead the integration and development of a big data scale business directory. As well as acquired large-scale marketing lead data from a diverse and cross platform array of sources that lead to a significant increase in leads acquired.",
+      "skills": [
+        "JavaScript",
+        "Negotiation"
+      ]
+    },
+    {
+      "title": "Chief Technology Officer",
+      "company": "Net Versa, LLC",
+      "employment_type": null,
+      "start_date": "Mar 2012",
+      "end_date": "Nov 2014",
+      "duration": "2 yrs 9 mos",
+      "location": "Irvine, CA",
+      "description": "Chief Technology Officer and System Architect of a complex suite of products that automated business listings on local search directories. Lead a team of up to 15 developers in building from the ground up a multi-platform product base. This led to over 180,000 lines of code being written in five languages for three operating systems in 18 repositories. The technology grew the customer base by over 200%.",
+      "skills": [
+        "Team Management",
+        "Mobile Application Development",
+        "JavaScript",
+        "Negotiation"
+      ]
+    },
+    {
+      "title": "Founder",
+      "company": "Tradebitcoin.com",
+      "employment_type": null,
+      "start_date": "Oct 2009",
+      "end_date": "Jan 2013",
+      "duration": "3 yrs 4 mos",
+      "location": null,
+      "description": "First to market and market leader of online local Bitcoin trading that sounded a clarion call for a local-gap trading solution within the Bitcoin economy.",
+      "skills": [
+        "JavaScript",
+        "Negotiation"
+      ]
+    },
+    {
+      "title": "Chief Technology Officer",
+      "company": "4MatchR",
+      "employment_type": null,
+      "start_date": "Oct 2010",
+      "end_date": "Jan 2011",
+      "duration": "4 mos",
+      "location": "Brooklyn, NY",
+      "description": "Team leader and system architect for a big data real estate listing aggregator. Combined all localized real estate listings in a user friendly interface.",
+      "skills": [
+        "Team Management",
+        "JavaScript",
+        "Negotiation"
+      ]
+    },
+    {
+      "title": "Chief Technology Officer",
+      "company": "Learning Online, LLC",
+      "employment_type": null,
+      "start_date": "Apr 2005",
+      "end_date": "Nov 2008",
+      "duration": "3 yrs 8 mos",
+      "location": "Fort Myers, FL",
+      "description": "Co-founder, architect and senior developer for an online learning platform that was a first to market courseware and curriculum marketplace named Scholar Square.",
+      "skills": [
+        "Team Management",
+        "JavaScript",
+        "Learning",
+        "Negotiation"
+      ]
+    }
+  ],
+"recommendations": [
+    {
+      "author": "Phil Knowles",
+      "author_title": "Senior Software Engineer",
+      "date": "May 9, 2023",
+      "relationship": "Phil worked with Janet on the same team",
+      "text": "Janet's advanced skillset, coupled with her extensive experience,\nmake her an outstanding team player and a tremendous asset to\nany organization. I absolutely endorse Janet Jeffus as a Senior\nSoftware Engineer and am confident that she will continue to excel\nin any role she undertakes."
+    },
+    {
+      "author": "Josh Willis",
+      "author_title": "Senior Frontend Developer at Hatch",
+      "date": "February 11, 2015",
+      "relationship": "Josh reported directly to Janet",
+      "text": "Janet knows more about programming then most software\ncompanies combined. She is excellent to work with, and I learned\nmore in the 9 months I worked for her than the rest of my career\ncombined. She would be an outstanding addition to, or leader of,\nany project."
+    },
+    {
+      "author": "Mark Davis",
+      "author_title": "President at SteelGlide",
+      "date": "February 10, 2025",
+      "relationship": "Mark managed Janet directly",
+      "text": "Janet is an outstanding senior engineer and consummate\nprofessional. She joined our team as a Senior Software Engineer.\nThanks to her exceptional performance as a designer, developer,\nand mentor, she rose quickly to a technical leadership role in the\ncompany. I've never met anyone as broadly talented in software\ntechnology. But the icing on the cake is her ability to work with\nothers. She's a naturally empathetic person, able to encourage and\nchallenge those around her to learn and grow professionally and\npersonally. She is an asset to any organization, and given the\nchance I'd hire her in a second."
+    },
+    {
+      "author": "Steven Hirlston",
+      "author_title": "Senior Software Engineer | Ruby on Rails",
+      "date": "August 1, 2023",
+      "relationship": "Steven worked with Janet on the same team",
+      "text": "Janet is deeply experienced and knowledgeable about all aspects\nof software engineering and design. She is also incredibly helpful\nand eager to teach what she knows to others."
+    },
+    {
+      "author": "Jacques Fournier",
+      "author_title": "Web App Developer & Real Estate Appraiser",
+      "date": "May 22, 2023",
+      "relationship": "Jacques worked with Janet on the same team",
+      "text": "I had the great privilege of working with Ms. Jeffus at RealQuantum\nfrom 2022-2023. She was the most experienced engineer on our\nteam and as a result, was responsible for some of the most\nimportant and complex assignments, such as implementation of\nsingle sign-on (SSO) using Auth0 and Azure. She was also\nextremely enthusiastic about helping others with any problem,\ndoing flawless deployments, and leading our team meetings. She\nwould be a great asset to any team, including as lead developer or\nCTO, and I hope that I have the opportunity to work with her again\nin the future."
+    },
+    {
+      "author": "Malachai Frazier",
+      "author_title": "AI-Enhanced Product Engineer",
+      "date": "May 11, 2023",
+      "relationship": "Malachai worked with Janet on the same team",
+      "text": "It has been a true privilege to work alongside Janet Jeffus at\nRealQuantum. As a Senior Software Engineer, her skill level is truly\ntop-notch, and her ability to tackle even the most complex\nchallenges is nothing short of impressive. Janet's expertise and\ndeep understanding of software engineering have made her an\nindispensable asset to our team."
+    }
+  ]
+}

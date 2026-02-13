@@ -1,0 +1,51 @@
+:root {
+  --background: #222433;
+  --foreground: #9ea3c0;
+  --cyan: #73c1a9;
+  --magenta: #b871b8;
+  --white: #9ea3c0;
+  --light-gray: #8085a6;
+  --comment-gray: #545c8c;
+  --string-green: #7cbe8c;
+  --statement-purple: #929be5;
+  --title-yellow: #a8a384;
+  --error-red: #ff9494;
+}
+
+[data-theme='light'] {
+  --background: #f0f0f0;
+  --foreground: #333;
+  --cyan: #008080;
+  --magenta: #c71585;
+  --white: #333;
+  --light-gray: #777;
+  --comment-gray: #999;
+  --string-green: #008000;
+  --statement-purple: #800080;
+  --title-yellow: #8b4513;
+  --error-red: #ff0000;
+}
+
+[data-theme='solarized'] {
+  --background: #002b36;
+  --foreground: #839496;
+  --cyan: #2aa198;
+  --magenta: #d33682;
+  --white: #eee8d5;
+  --light-gray: #586e75;
+  --comment-gray: #657b83;
+  --string-green: #859900;
+  --statement-purple: #6c71c4;
+  --title-yellow: #b58900;
+  --error-red: #dc322f;
+}
+
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'JetBrains Mono', 'Fira Code', 'IBM Plex Mono', monospace;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.5s, color 0.5s;
+}

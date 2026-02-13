@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+==========================================================================
+【AI HANDOVER NOTE】
+1. DESIGN PHILOSOPHY:
+   - Retro-Future Terminal Aesthetic: This design system bridges 1980s mainframe aesthetics with modern high-performance software engineering. It utilizes a 'Command-Line First' approach where the UI mimics a high-end terminal emulator.
+   - Visual Style: Cyber-Minimalism. It features high-contrast typography, CRT-inspired scanlines, and 'glow-state' interactions. The interface should feel like a physical CRT monitor—precise, technical, and luminescent.
+   - Project Fit: Reflects Janet's 20+ years of technical leadership and 'hacker culture' roots while maintaining a professional CTO-level executive presence.
+
+2. TYPOGRAPHY:
+   - Sans (JetBrains Mono): Chosen for its exceptional legibility and 'developer-centric' personality. Used for all UI controls and body text to maintain the terminal feel.
+   - Mono (Fira Code): Utilized specifically for code blocks, metrics, and ASCII art to take advantage of programming ligatures and its distinct geometric rhythm.
+
+3. COLOR SYSTEM:
+   - Primary Accent: Neon Cyan (Hue 190). Chosen to replace traditional terminal green with a more modern, high-energy 'cyber' feel. It represents 'Active Commands' and 'Input Focus'.
+   - Mapping: --primary is the core Cyan glow; --accent provides a softer teal-tinted background for hover states; --ring uses a high-chroma cyan to simulate electronic focus.
+   - Semantic Logic: Success is Cyan (logic), Warning is Amber (Hue 70, retro-caution), and Destructive is Magenta (Hue 330, cyberpunk error).
+
+4. USAGE GUIDE:
+   - Layout: Centered Terminal Container. The main content should be housed in a 'Shell' component with a subtle border-glow and scanline overlay (linear-gradient).
+   - Animations: Use 'typing' effects for headers. Blinking cursors (animation-pulse) should follow primary text prompts.
+   - Effects: Use 'text-shadow' with primary colors to simulate CRT bloom. Sidebar should be treated as a 'Navigation Pane' within the shell, using vertical borders rather than solid backgrounds.
+==========================================================================
+*/
+
+:root {
+  /* Typography */
+  --font-sans: JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-mono: Fira Code, monospace;
+  
+  /* Radius */
+  --radius: 0.125rem;
+
+  /* Core UI Tokens */
+  --background: oklch(0.98 0.01 190);
+  --foreground: oklch(0.25 0.05 190);
+  --card: oklch(0.96 0.02 190);
+  --card-foreground: oklch(0.25 0.05 190);
+  --popover: oklch(0.98 0.01 190);
+  --popover-foreground: oklch(0.25 0.05 190);
+  --primary: oklch(0.55 0.18 190);
+  --primary-foreground: oklch(0.98 0.01 190);
+  --secondary: oklch(0.92 0.04 190);
+  --secondary-foreground: oklch(0.35 0.08 190);
+  --muted: oklch(0.94 0.02 190);
+  --muted-foreground: oklch(0.45 0.05 190);
+  --accent: oklch(0.92 0.06 190);
+  --accent-foreground: oklch(0.30 0.12 190);
+  --destructive: oklch(0.55 0.20 330);
+  --destructive-foreground: oklch(0.98 0.01 190);
+  --border: oklch(0.88 0.03 190);
+  --input: oklch(0.88 0.03 190);
+  --ring: oklch(0.55 0.18 190);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.55 0.18 190);
+  --chart-2: oklch(0.55 0.20 330);
+  --chart-3: oklch(0.65 0.15 70);
+  --chart-4: oklch(0.50 0.15 220);
+  --chart-5: oklch(0.40 0.10 190);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.97 0.01 190);
+  --sidebar-foreground: oklch(0.30 0.05 190);
+  --sidebar-primary: oklch(0.55 0.18 190);
+  --sidebar-primary-foreground: oklch(0.98 0.01 190);
+  --sidebar-accent: oklch(0.94 0.03 190);
+  --sidebar-accent-foreground: oklch(0.25 0.10 190);
+  --sidebar-border: oklch(0.92 0.02 190);
+  --sidebar-ring: oklch(0.55 0.18 190);
+}
+
+.dark {
+  --background: oklch(0.12 0.01 190);
+  --foreground: oklch(0.92 0.10 190);
+  --card: oklch(0.15 0.02 190);
+  --card-foreground: oklch(0.92 0.10 190);
+  --popover: oklch(0.12 0.01 190);
+  --popover-foreground: oklch(0.92 0.10 190);
+  --primary: oklch(0.85 0.18 190);
+  --primary-foreground: oklch(0.15 0.05 190);
+  --secondary: oklch(0.25 0.08 190);
+  --secondary-foreground: oklch(0.85 0.18 190);
+  --muted: oklch(0.22 0.04 190);
+  --muted-foreground: oklch(0.65 0.05 190);
+  --accent: oklch(0.28 0.12 190);
+  --accent-foreground: oklch(0.95 0.15 190);
+  --destructive: oklch(0.65 0.25 330);
+  --destructive-foreground: oklch(0.12 0.01 190);
+  --border: oklch(0.30 0.10 190);
+  --input: oklch(0.25 0.08 190);
+  --ring: oklch(0.85 0.18 190);
+  
+  /* Chart Tokens */
+  --chart-1: oklch(0.85 0.18 190);
+  --chart-2: oklch(0.75 0.25 330);
+  --chart-3: oklch(0.85 0.15 75);
+  --chart-4: oklch(0.70 0.15 210);
+  --chart-5: oklch(0.98 0.01 190);
+  
+  /* Sidebar Tokens */
+  --sidebar: oklch(0.08 0.01 190);
+  --sidebar-foreground: oklch(0.85 0.05 190);
+  --sidebar-primary: oklch(0.85 0.18 190);
+  --sidebar-primary-foreground: oklch(0.12 0.01 190);
+  --sidebar-accent: oklch(0.20 0.08 190);
+  --sidebar-accent-foreground: oklch(0.95 0.18 190);
+  --sidebar-border: oklch(0.25 0.05 190);
+  --sidebar-ring: oklch(0.85 0.18 190);
+}
+
+@theme inline {
+  /* Shadcn Core Mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Charts Mapping */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar Mapping */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  /* Radius */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans min-h-screen;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40;
+  }
+}

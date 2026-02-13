@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-terminal-bg: #0D0D0D;
+  --color-terminal-text: #E5E5E5;
+  --color-terminal-cyan: #00FFFF;
+  --color-terminal-magenta: #FF00FF;
+  --color-terminal-green: #00FF00;
+  --color-terminal-yellow: #FFB000;
+  --color-terminal-dim: #888888;
+
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  
+  --animate-blink: blink 1s step-end infinite;
+  --animate-scanline: scanline 8s linear infinite;
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  @keyframes scanline {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 0% 100%; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-terminal-bg text-terminal-text font-mono overflow-hidden;
+  }
+}
+
+/* Custom Scrollbar for Webkit */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-terminal-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-terminal-dim border-2 border-terminal-bg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-terminal-cyan;
+}
