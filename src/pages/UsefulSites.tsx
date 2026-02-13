@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 // @ts-ignore
-import contentRaw from '../content/website_index.md?raw';
+import contentRaw from '../../site_project/website_index.md?raw';
 import { Search, ExternalLink, Hash, Globe, MousePointer2 } from 'lucide-react';
 
 interface Site {
